@@ -1,0 +1,115 @@
+{
+  "video": {
+    "encoder": "av1_vaapi",
+    "hw_device": "/dev/dri/renderD128",
+    "max_concurrent_jobs": 1,
+    "encoder_speedpreset": null,
+    "target_vmaf": 93.0,
+    "min_vmaf": 91.0,
+    "vmaf_icq_candidates_4k": [
+      36,
+      33,
+      30,
+      27,
+      24
+    ],
+    "vmaf_icq_candidates_1080p": [
+      30,
+      27,
+      24,
+      21,
+      18
+    ],
+    "vmaf_icq_candidates_sd": [
+      28,
+      25,
+      22,
+      19,
+      16
+    ],
+    "vmaf_clip_length_sec": 5,
+    "vmaf_early_reject_margin": 2.0,
+    "skip_vmaf": false,
+    "fixed_icq": 24,
+    "legacy_fixed_icq": 26,
+    "skip_codecs": [
+      "av1",
+      "hevc"
+    ],
+    "max_resolution": null,
+    "min_compression_pct": 10.0,
+    "film_grain": 0,
+    "film_grain_denoise": false,
+    "deinterlace": false,
+    "force_bt709_fallback": true,
+    "test_color_guesses": false,
+    "preserve_hdr": true,
+    "force_10bit": false,
+    "gop_size": null,
+    "b_depth": null,
+    "b_strategy": true,
+    "tile_columns": null,
+    "tile_rows": null,
+    "custom_flags": [],
+    "vmaf_use_ramdisk": false,
+    "vmaf_lossless_ref_exts": [
+      ".mp4",
+      ".wmv",
+      ".avi",
+      ".m4v",
+      ".mov"
+    ],
+    "remux_on_skip": false,
+    "remux_container": "mkv",
+    "preset_vaapi": 1,
+    "preset_svtav1": 6,
+    "preset_nvenc": 5,
+    "preset_cpu_fallback": 5
+  },
+  "audio_subs": {
+    "allowed_languages": [
+      "fin",
+      "eng",
+      "und",
+      ""
+    ],
+    "smart_audio": true,
+    "fallback_codec": "aac",
+    "fallback_bitrate": "384k",
+    "passthrough_codecs": [
+      "truehd",
+      "dts",
+      "eac3",
+      "ac3",
+      "flac"
+    ],
+    "add_stereo_downmix": false,
+    "stereo_downmix_codec": "aac",
+    "stereo_downmix_bitrate": "192k",
+    "drop_sub_codecs": []
+  },
+  "files": {
+    "folders": [
+      {
+        "id": "default",
+        "input_dir": "/media/input",
+        "output_dir": "/media/output"
+      }
+    ],
+    "temp_dir": "/media/temp",
+    "in_place": false,
+    "keep_extras": true,
+    "auto_scan_interval_minutes": 0
+  },
+  "safety": {
+    "min_free_space_gb": 50.0,
+    "max_duration_diff_sec": 2.0,
+    "max_consecutive_errors": 3,
+    "keep_failed_videos": false
+  },
+  "container": {
+    "clean_metadata": false,
+    "keep_chapters": true,
+    "normalize_default_tracks": false
+  }
+}

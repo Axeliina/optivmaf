@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Sovelluksen data ja käyttäjäkohtaiset tiedot
+data/optivmaf.db*
+data/disk_stats.json
+data/progress.json*
+data/control.json
+data/config.json
+data/*.log
+*.log
+
+# Etäworkerin paikallinen asetus
+client/node_config.json
+
+# Docker ja paikalliset ympäristömuuttujat
+.env
+docker-compose.yml
+docker-compose.override.yml
+
+# Väliaikaishakemistot
+temp/
+media/
+
+# IDE & OS
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store

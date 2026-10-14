@@ -1,0 +1,46 @@
+services:
+  optivmaf:
+    build: .
+    container_name: optivmaf
+    restart: unless-stopped
+    ports:
+      - "${PORT:-6699}:8000"
+
+    # Laitteistokiihdytys Intel / AMD GPU:lle (VAAPI)
+    # Poista kommentti alla olevista riveistä jos käytät Intel/AMD GPU:ta:
+    devices:
+      - ${DRI_PATH:-/dev/dri}:/dev/dri
+
+    # Laitteistokiihdytys NVIDIA GPU:lle (NVENC)
+    # Vaatii nvidia-container-toolkit -paketin asennettuna host-koneelle.
+    # Poista kommentti alla olevasta lohkosta jos käytät NVIDIA-näytönohjainta:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu, video]
+
+    volumes:
+      # Videokansiot: mäppää omat hakemistosi konttiin
+      - ${MEDIA_INPUT:-./media/input}:/media/input
+      - ${MEDIA_OUTPUT:-./media/output}:/media/output
+      - ${MEDIA_TEMP:-./media/temp}:/media/temp
+
+      # Asetukset ja SQLite-tietokanta säilytetään hostilla
+      - ./data/config.json:/app/data/config.json
+      - ./data/optivmaf.db:/app/data/optivmaf.db
+
+    environment:
+      - PYTHONUNBUFFERED=1
+      # NVIDIA: vaaditaan jos käytetään NVIDIA-näytönohjainta
+      # - NVIDIA_VISIBLE_DEVICES=all
+      # - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
+
+    # /dev/shm: käytetään kun vmaf_use_ramdisk=true (RAM-levy VMAF-testaukselle)
+    shm_size: '4g'
+
+    # /tmp tmpfs: nopeuttaa väliaikaistiedostoja ja vähentää levyn kulumista
+    tmpfs:
+      - /tmp:size=2g,mode=1777

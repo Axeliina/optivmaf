@@ -1,0 +1,22 @@
+{
+  "master_url": "http://192.168.1.100:6699",
+  "node_id": "peli-pc",
+  "node_name": "Peli-PC (SVT-AV1 CPU)",
+  "encoder": "libsvtav1",
+  "encoder_speedpreset": null,
+  "film_grain": 8,
+  "film_grain_denoise": false,
+  "force_10bit": true,
+  "temp_dir": "C:\\temp\\optivmaf",
+  "path_mapping": {
+    "/mnt/dell": "Z:\\dell",
+    "/mnt/storage": "Z:\\storage"
+  },
+  "poll_interval_sec": 4,
+  "skip_vmaf": false,
+  "fixed_icq": 24,
+  "preset_svtav1": 6,
+  "preset_nvenc": 5,
+  "preset_vaapi": 1,
+  "preset_cpu_fallback": 5
+}
