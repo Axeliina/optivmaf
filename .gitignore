@@ -35,3 +35,7 @@ media/
 *.swp
 *~
 .DS_Store
+
+# Node / Frontend
+node_modules/
+web/node_modules/

@@ -504,7 +504,7 @@
 
     <script>
         // --- ASETUKSET ---
-        const API_URL = 'http://192.168.50.149:6699/api';
+        const API_URL = window.location.protocol.startsWith('http') ? `${window.location.origin}/api` : 'http://localhost:6699/api';
         let currentFilter = '';
         let selectedIds = new Set();    // Valitut video-ID:t
         let currentVideos = [];         // Viimeksi haettu lista
